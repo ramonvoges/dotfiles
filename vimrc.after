@@ -1,0 +1,198 @@
+" Aktiviert das Material Theme
+syntax enable
+set background=dark
+" colorscheme material-theme
+colorscheme hybrid_material
+let g:enable_bold_font = 1
+" Schaltet die Farben im Terminal an, wenn iTerm das gleiche Farbschema hat
+" set termguicolors
+" set t_Co=256
+
+" Erhöht den Abstand zwischen den Zeilen
+"set linespace=2
+"set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+
+" Schaltet den Flymode von Auto pair an
+let g:AutoPairsFlyMode = 1
+"let g:AutoPairsShortcutFastWrap = '<D-d>'
+"
+" Rechtschreibprüfung
+set spelllang=de,en
+" Automatisch in Text-Dateien
+autocmd FileType latex,tex,md,markdown setlocal spell
+
+"Latex
+"let g:tex_flavor = 'latex'
+
+" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+filetype plugin on
+
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
+
+" OPTIONAL: This enables automatic indentation as you type.
+filetype indent on
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+" Latexmk mit Lualatex nutzen
+" let g:Tex_CompileRule_pdf = 'lualatex -synctex=1 -file-line-error -interaction=nonstopmode "$*"'
+let g:Tex_CompileRule_pdf = 'latexmk -lualatex -latexoption="-synctex=1 -file-line-error -interaction=nonstopmode" "$*"'
+" Alle weiteren Einstellungen sind anonsten in der Datei
+" /Users/rvoges/.janus/vim-latex/ftplugin/tex.vim abgelegt!
+let g:Tex_CustomTemplateFolder = '/Users/rvoges/ownCloud/Documents/LaTeX-Vorlagen/'
+
+" Einstellungen für airline
+" set t_Co=256
+let g:airline_powerline_fonts = 1
+set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+"set guifont=Meslo\ LG\ M\ for\ Powerline:h14
+" let g:airline_theme='base16'
+let g:airline_theme = "hybrid"
+
+" Zeichen für ariline
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+" Buffer in der Tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+" Zeigt nur den Dateiname
+let g:airline#extensions#tabline#fnamemod = ':t'
+" Damit zwischen den Buffern gewechselt werden kann
+set hidden
+
+" Verstecke scroll bar links und rechts
+set guioptions-=L
+set guioptions-=r
+
+" Highlightet die aktuelle Zeile, aber nur im aktiven Fenster
+set cursorline
+" autocmd WinEnter * setlocal cursorline
+" autocmd WinLeave * setlocal nocursorline
+
+" Schaltet soft wrap und word wrap ein
+set wrap!
+set lbr!
+
+" Maximiert das Fenster beim Start
+set lines=99
+set columns=125
+
+" Schaltet das Beepen aus, indem es die Visualbell aktviert, aber auf Null
+" setzt
+set visualbell
+set t_vb=
+
+" <M-Q> als Mapping für die Neuformatierung von Absätzen
+" im Unterschied zu gqip bleibt der Cursor an der aktuellen Stelle
+nnoremap « gwip
+
+" Mapping für den Pfad des aktiven Buffers
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" Abkürzungen für Zeitstempel im Command Mode
+cab datum <C-R>=strftime("%Y-%m-%d")<CR>
+cmap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
+
+" Tagbar
+" Sorgt dafür, dass sich das Fenster vergrößert, wenn ausgewählt
+let g:tagbar_expand = 1
+
+" Transpose words
+imap † <Plug>Transposewords
+nmap † <Plug>Transposewords
+cmap † <Plug>Transposewords
+
+" Ledger
+" Gesamtbreite, wenn gefaltet
+let g:ledger_maxwidth = 63
+" Komma für den Betrag
+let g:ledger_decimal_sep = ','
+" Ausrichtung des Betrags
+let g:ledger_align_at = 60
+" Konfiguration der Währung
+let g:ledger_commodity_before = 0
+let g:ledger_default_commodity = '€'
+let g:ledger_commodity_sep = ' '
+" Erlaubt Autocomplete mit <Tab> auch für die Beträge und Währungen
+au FileType ledger inoremap <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<CR>
+au FileType ledger vnoremap <silent> <Tab> :LedgerAlign<CR>
+" Tabstops und Shiftwidth betragen 4 Leerzeichen
+autocmd FileType ledger setlocal ts=4
+autocmd FileType ledger setlocal sw=4
+
+" Setzen der Textweite (textwidth) für den Zeilenumbruch
+"set tw=80
+" set colorcolumn=81
+
+" Indentline Paket
+let g:indentLine_char = '┆'
+"let g:indentLine_fileType = ['ruby', 'shell']
+
+" Indent guides Paket
+let g:indent_guides_guide_size=1
+
+" Einstellungen für Ctrl-P
+" let g:ctrlp_cmd = 'CtrlPMixed'     " Sucht in Open Recent, Buffers and Files
+map <C-P> :CtrlPMixed<cr>
+" Öffnet eine Buffer-Liste
+map <C-B> :CtrlPBuffer<cr>
+
+" Einstellungen für den NERDCommenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" NERDTree
+map <leader>f :NERDTreeFind<cr>
+" Sorgt dafür, dass immer ein Fenster den Fokus erhält
+" let g:nerdtree_tabs_smart_startup_focus=2
+" Startet NERDTree zu Beginn ACHTUNG: MUSS AM ENDE DER DATEI GESETZT WERDEN
+" autocmd vimenter * NERDTree
+" autocmd VimEnter * wincmd p
+" let g:NERDTreeWinSize = 31
+
+" Voom
+" Ort der Baumübersicht, Standard 'left'
+let g:voom_tree_placement = "right"
+let g:voom_ft_modes = {'markdown': 'markdown', 'md': 'markdown', 'tex': 'latex'}
+nnoremap <leader>v :Voom<CR>
+
+" Buffergator
+" Öffnet die Buffer-Übersicht unten, nicht mehr links (L)
+let g:buffergator_viewport_split_policy = "B"
+
+" Undotree
+nnoremap <F2> :UndotreeToggle<cr>
+
+" Markdown
+let g:vim_markdown_frontmatter=1
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ruby']
+" Sorgt für einen Zeilenumbruch an Wörter und eine (a)utomatische Formatierung
+" autocmd FileType markdown setlocal wrap linebreak fo+=a
+nnoremap <F12> :set linebreak fo+=a<cr>
+nnoremap <F11> :set nolinebreak fo-=a<cr>
+inoremap <F12> <Esc>:set linebreak fo+=a<cr>i
+inoremap <F11> <Esc>:set nolinebreak fo-=a<cr>i
+
+" Dash
+:nmap <silent> <leader>d <Plug>DashSearch
+
+
