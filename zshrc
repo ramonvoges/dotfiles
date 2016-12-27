@@ -88,7 +88,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Alias für reckon-Gem
-alias limp="reckon -v --contains-header --csv-separator ';' --comma-separates-cents --currency 'EUR' --ignore-columns 2,3,6,7,8,9,10,11 --encoding 'UTF-8' --suffixed"
+alias limp="reckon -v --contains-header --csv-separator ';' --comma-separates-cents --currency '€' --ignore-columns 2,3,6,7,8,9,10,11 --encoding 'UTF-8' --suffixed"
 
 /usr/local/bin/archey
 
