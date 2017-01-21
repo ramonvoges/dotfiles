@@ -1,0 +1,26 @@
+let mapleader = ","
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
+set cursorline
+set hidden
+
+" Nerdtree
+map <leader>f :NERDTreeFind<cr>
+
+" Color Theme
+set background=dark
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
+colorscheme hybrid
+
+" Airline
+set laststatus =2
+let g:airline_theme = "hybrid"
+let g:airline_powerline_fonts = 1
+set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+" Zeigt nur den Dateiname
+let g:airline#extensions#tabline#fnamemod = ':t'
