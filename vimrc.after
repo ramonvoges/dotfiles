@@ -2,11 +2,15 @@
 syntax enable
 set background=dark
 " colorscheme material-theme
-colorscheme hybrid_material
-let g:enable_bold_font = 1
+" colorscheme hybrid_material
+" let g:enable_bold_font = 1
 " Schaltet die Farben im Terminal an, wenn iTerm das gleiche Farbschema hat
 " set termguicolors
 " set t_Co=256
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
+colorscheme hybrid
+" colorscheme hybrid_material
 
 " Erhöht den Abstand zwischen den Zeilen
 "set linespace=2
@@ -41,7 +45,8 @@ filetype indent on
 let g:tex_flavor='latex'
 " Latexmk mit Lualatex nutzen
 " let g:Tex_CompileRule_pdf = 'lualatex -synctex=1 -file-line-error -interaction=nonstopmode "$*"'
-let g:Tex_CompileRule_pdf = 'latexmk -lualatex -latexoption="-synctex=1 -file-line-error -interaction=nonstopmode" "$*"'
+let g:Tex_CompileRule_pdf = 'latexmk -lualatex -synctex=1 -file-line-error -interaction=nonstopmode "$*"'
+" let g:Tex_ViewRule_pdf = 'Skim'
 " Alle weiteren Einstellungen sind anonsten in der Datei
 " /Users/rvoges/.janus/vim-latex/ftplugin/tex.vim abgelegt!
 let g:Tex_CustomTemplateFolder = '/Users/rvoges/ownCloud/Documents/LaTeX-Vorlagen/'
@@ -64,8 +69,12 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 " Buffer in der Tabline
+" set guioptions -= 'e'
+let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#buffer_min_count = 0
 " Zeigt nur den Dateiname
 let g:airline#extensions#tabline#fnamemod = ':t'
 " Damit zwischen den Buffern gewechselt werden kann
