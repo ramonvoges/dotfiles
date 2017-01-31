@@ -93,3 +93,6 @@ alias limp="reckon -v --contains-header --csv-separator ';' --comma-separates-ce
 /usr/local/bin/archey
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# Alias für Latexmk
+alias setzen="latexmk -lualatex -synctex=1 -file-line-error -interaction=nonstopmode"
