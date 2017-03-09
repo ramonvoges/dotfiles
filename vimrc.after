@@ -145,7 +145,7 @@ autocmd FileType ledger setlocal sw=4
 " set colorcolumn=81
 
 " Indentline Paket
-let g:indentLine_char = '┆'
+" let g:indentLine_char = '┆'
 "let g:indentLine_fileType = ['ruby', 'shell']
 
 " Indent guides Paket
@@ -181,7 +181,7 @@ map <leader>f :NERDTreeFind<cr>
 " Voom
 " Ort der Baumübersicht, Standard 'left'
 let g:voom_tree_placement = "right"
-let g:voom_ft_modes = {'markdown': 'markdown', 'md': 'markdown', 'tex': 'latex'}
+let g:voom_ft_modes = {'markdown': 'markdown', 'md': 'markdown', 'liquid': 'markdown' 'tex': 'latex'}
 nnoremap <leader>v :Voom<CR>
 
 " Buffergator
