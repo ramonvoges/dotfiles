@@ -181,7 +181,7 @@ map <leader>f :NERDTreeFind<cr>
 " Voom
 " Ort der Baumübersicht, Standard 'left'
 let g:voom_tree_placement = "right"
-let g:voom_ft_modes = {'markdown': 'markdown', 'md': 'markdown', 'liquid': 'markdown' 'tex': 'latex'}
+let g:voom_ft_modes = {'markdown': 'markdown', 'md': 'markdown', 'liquid': 'markdown', 'tex': 'latex'}
 nnoremap <leader>v :Voom<CR>
 
 " Buffergator
