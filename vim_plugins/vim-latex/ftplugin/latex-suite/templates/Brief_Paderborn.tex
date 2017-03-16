@@ -1,0 +1,30 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%:p:t")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+\documentclass[10pt, Format]{scrlttr2}
+
+\setdefaultlanguage[babelshorthands=true]{german}
+
+\usepackage[left=2.8cm,right=5.2cm, bottom=3cm]{geometry}
+
+
+\begin{document}
+\begin{letter}{\bigskip Adressat \\Adresszeile 2\\ Adresszeile 3\\}
+
+\setkomavar{fromname}{Ramon Voges}
+
+\setkomavar{date}{\today}
+\setkomavar{subject}{<+Das ist der Betreff+>}
+
+\opening{<+Anrede+> }
+
+<+Brieftext+>
+
+\closing{Mit freundlichen Grüßen}
+% \ps % Für das Post scriptum
+% PS: Das ist mein Post scriptum...
+\encl{Anlagen} % Für Anlagen...
+\end{letter}
+\end{document}

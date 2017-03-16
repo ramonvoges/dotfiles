@@ -1,0 +1,27 @@
+snippet front
+	---
+	date: `system("date +%Y-%m-%d")`
+	title: "${1:Name}"
+	categories:
+	- ${2:Kategorie}
+	tags:
+	- ${3:Tag}
+	excerpt: "${4:Zusammenfassung}"
+	---
+
+	${5}
+
+snippet fence
+	\`\`\`
+	${1:code}
+	\`\`\`
+snippet fencer
+	\`\`\`ruby
+	${1:Code}
+	\`\`\`
+	${2}
+
+endsnippet
+
+
+

@@ -1,0 +1,53 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%:p:t")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+
+\documentclass[Briefformat]{scrlttr2}
+
+\setkomavar{signature}{Ramon Voges} % Signatur
+
+% Für zusätzliche Absenderinformationen, z.B. die Bankverbindung:
+% \setkomavar{location}{\raggedright
+%   Konto 0165\,737\,900\\
+%   BLZ 100\,800\,00\\
+%   Commerzbank\\
+%   Steuernummer 25/572/00217 oder einfach:
+%   \usekomavar{frombank}}
+
+% Für besondere Versandangaben im Sichtfenster:
+% \setkomavar{specialmail}{z.B. per Einschreiben}
+
+% Für die Geschäftszeile und ihre Standardbezeichnungen:
+% \setkomavar{yourref}{Inhalt }     % Ihr Zeichen
+% \setkomavar{yourmail}{Inhalt }    % Ihr Schreiben vom
+% \setkomavar{myref}{Inhalt }       % Unser Zeichen
+% \setkomavar{customer}{Inhalt }    % Kundennummer
+% \setkomavar{invoice}{Inhalt }     % Rechnungsnummer
+
+% Für Fußzeilen:
+\LoadLetterOption{Fusszeile}      % Aktiviert die ausführliche
+                                    % Fußzeile.
+% \LoadLetterOption{Fusszeile_kurz} % Aktiviert die kurze.
+
+
+\begin{document}
+
+\setkomavar{date}{\today} % Kann von Hand angepasst werden, damit
+                          % immer dasselbe Datum erscheint.
+\setkomavar{place}{Berlin}
+
+\setkomavar{subject}{<+Betreff+>}
+\begin{letter}{<+Adressat+>\\ <+Adresszeile 2+>\\ <+Adresszeile 3+>}
+
+\opening{<+Anrede+>,}
+
+<+Brieftext...+>
+
+\closing{Mit freundlichen Grüßen}
+% \ps PS: Hier kommt das Post scriptum.
+% \encl{Anlagen}
+
+\end{letter}
+\end{document}

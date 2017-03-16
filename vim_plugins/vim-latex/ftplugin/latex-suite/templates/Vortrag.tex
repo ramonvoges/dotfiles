@@ -1,0 +1,101 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%:p:t")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+
+\documentclass[DIV=calc, a4paper, fontsize=12pt, headings=normal, parskip=half]{scrartcl}
+
+\usepackage{fontspec}
+\usepackage{luacode}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont[Numbers=OldStyle]{Minion Pro}
+\setsansfont[Scale=MatchLowercase]{Gill Sans MT}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[babelshorthands=true]{german}
+\setotherlanguages{english,dutch,latin}
+
+\usepackage[german=quotes]{csquotes}
+
+% Endnotes:
+\usepackage{endnotes}
+\renewcommand*{\notesname}{Anmerkungen}
+
+
+\usepackage[backend=biber, style=footnote-dw, seriesformat=parens,
+sorting=nyt, sortcase=false, pageref=true,
+language=german, notetype=endonly]{biblatex}
+
+\addbibresource{/Users/rvoges/ownCloud/Documents/Literatur/Arbeit.bib}
+
+\renewcommand*{\seriespunct}{=\addspace}
+\renewcommand*{\sernumstring}{\addcomma\space\bibstring{volume}\addspace}
+\deffootnote{1em}{1em}{\textsuperscript{\thefootnotemark\ }}
+\renewcommand*{\citemultinamedelim}{\addcomma\space} % Für die Aufzählung mehrerer Autoren bzw. Hrsg.
+\renewcommand*{\citefinalnamedelim}{\ifnum\value{liststop}>2 \finalandcomma\fi \addspace\bibstring{and}\space}
+\renewcommand*{\citerevsdnamedelim}{\addspace}
+
+
+\usepackage{setspace}
+\doublespacing
+
+
+\usepackage{caption}
+\captionsetup{format=plain,margin=10pt,font=small,labelfont=bf,labelsep=space}
+
+\usepackage[english, hidelinks, pdfstartview=FitH, pdffitwindow=true]{hyperref}
+\hypersetup{pdftitle={<+Titel+>}, pdfauthor={Ramon Voges}, pdfsubject={<+Veranstaltung+>}, pdfkeywords={<+Stichworte+>}}
+
+% Keine fett gesetzten Überschriften!
+\addtokomafont{section}{\mdseries}
+% \addtokomafont{chapter}{\mdseries}
+\addtokomafont{subsection}{\mdseries}
+
+% Neue Befehle:
+\newcommand{\titel}[1]{\textsc{#1}}
+\newcommand{\marginalie}[1]{\marginpar{\raggedright\textsf{{\footnotesize #1}}}}
+\newcommand{\beleg}[1]{\normalsize\endnote{#1}}
+\newenvironment{zitat}{\begin{quote}\itshape\small}{\end{quote}}
+\renewcommand*{\mkcitation}[1]{\upshape#1}
+\SetBlockEnvironment{zitat}
+
+
+
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\widowpenalty=10000
+\vfuzz \hfuzz
+\raggedbottom
+
+\begin{document}
+
+\title{<++>}
+\subtitle{<++>}
+\subject{<++>}
+\date{\normalsize <++>}
+\author{\normalsize Ramon Voges}
+
+\maketitle
+
+\noindent <+Dank an die Veranstalter+>
+
+
+<+Hier kommt der Vortrag+>
+
+Vielen Dank!
+
+
+% Hier kommen die Anmerkungen:
+\newpage
+\begingroup \parindent 0pt
+
+% \parskip 2ex
+\def\enotesize{\footnotesize} \theendnotes
+\endgroup
+
+
+
+\end{document}

@@ -1,0 +1,93 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%:p:t")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+
+\documentclass{beamer}
+\usetheme[background=dark]{metropolis}
+
+\usepackage{fontspec}
+
+\usepackage{luacode}
+
+
+% Rechtschreibumgebung
+\usepackage{polyglossia}
+\setdefaultlanguage[babelshorthands=true]{german}
+% \setotherlanguages{english,dutch,latin}
+
+\usepackage[german=quotes]{csquotes}
+
+\usepackage[export]{adjustbox}
+
+\usepackage{url}
+\usepackage{mdwlist}
+
+% \usepackage[backend=biber, seriesformat=parens, style=footnote-dw, sortcase=false, notetype=endonly]{biblatex}
+% \bibliography{/Users/rvoges/Documents/Promotion/Diss/Doktorarbeit/Arbeit}
+% \renewcommand*{\seriespunct}{=\addspace}
+% \renewcommand*{\sernumstring}{\addcomma\space\bibstring{volume}\addspace}
+% \deffootnote{1em}{1em}{\textsuperscript{\thefootnotemark\ }}
+
+\usepackage{siunitx}
+
+\setbeamertemplate{section in toc}[sections numbered]
+
+% \renewcommand*{\insertcaptionname}{Abbildung: }
+% \setbeamertemplate{caption}{\insertcaption}
+
+\author{Dr.\ des.\ Ramon Voges}
+\institute{<+Universität+>}
+
+\title{<+Titel+>}
+
+\date[<+Kurzdatum+>]{<+Datum lang+>}
+
+
+
+\begin{document}
+
+\maketitle
+
+
+\begin{frame}<1>[label=<+titel+>]
+\begin{figure}
+\includegraphics[center,height=0.8\textheight]{<+Pfad zum Bild+>}
+caption{<+Bildtitel+> (<+Jahr+>), <+Technik+>, ca. \SI{<+Hoehe+>}{cm} $ \times $ \SI{<+Breite+>}{cm}, <+Überlieferungsort+>.}
+\end{figure}
+\end{frame}
+
+
+% Die Gliederung
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[pausesections, hideallsubsections]
+\end{frame}
+
+\section{<+Abschnitt+>}
+\label{sec:<+abschnitt+>}
+
+
+% Folie mit zwei Bildern
+% \begin{frame}<1>[label=<+label+>]
+% \frametitle{}
+% \begin{figure}
+% \includegraphics[height=0.47\textheight, left=4cm]{<+Pfad Bild 1+>}
+% \includegraphics[height=0.47\textheight, right=7cm]{<+Pfad Bild 2+>}
+% \caption{<+Bildunterschriften+>}
+% \end{figure}
+% \end{frame}
+%
+
+\section{Schluss}
+\label{sec:schluss}
+
+\begin{frame}[]
+\huge Vielen Dank!
+\end{frame}
+
+
+\end{document}
+
+

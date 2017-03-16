@@ -1,0 +1,51 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%:p:t")!comp!
+%     Created: !comp!strftime("%a, %d. %b um %H:00 %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a, %d. %b um %H:00 %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+
+\documentclass[10pt, Format]{scrlttr2}
+
+\setdefaultlanguage[babelshorthands=true]{german}
+\usepackage[german=quotes]{csquotes}
+\usepackage[left=2.8cm,right=5.2cm, bottom=3cm]{geometry}
+
+\usepackage{amssymb}
+
+
+% Für Tabellen
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % zentriert mit Breitenangabe
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % rechtsbündig mit Breitenangabe
+
+
+% Bei Overfull hboxes:
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\clubpenalty = 10000 \widowpenalty = 10000 \displaywidowpenalty = 10000
+
+% \vfuzz \hfuzz
+% \raggedbottom
+\begin{document}
+
+\begin{letter}{\bigskip <+Name des Studenten+>\\ <+Straße und Hausnummer+> \\ <+PLZ und Ort+>\\}
+
+\setkomavar{date}{<+Datum+>}
+\setkomavar{subject}{Gutachten}
+
+\opening{\begin{tabularx}{\textwidth}{lX} \textbf{Verfasser*in:} & <+Verfasser+> (<+Matrikelnr+>)\\  \textbf{Seminar:} & <+Seminartitel+> (<+Semester+>)\\ \textbf{Titel der Arbeit:} & <+Titel der Arbeit+>\\ \end{tabularx}}
+
+
+<+Hier steht der eigentliche Gutachtentext+>
+
+\begin{tabularx}{\textwidth}{lcr} \textbf{Note:} & <+Note+> & (<+1,0+>)\\ \end{tabularx}
+
+\closing{}
+
+\end{letter}
+\end{document}
