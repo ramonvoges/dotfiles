@@ -49,7 +49,7 @@ let g:Tex_CompileRule_pdf = 'latexmk -lualatex -synctex=1 -file-line-error -inte
 " let g:Tex_ViewRule_pdf = 'Skim'
 " Alle weiteren Einstellungen sind anonsten in der Datei
 " /Users/rvoges/.janus/vim-latex/ftplugin/tex.vim abgelegt!
-let g:Tex_CustomTemplateFolder = '/Users/rvoges/ownCloud/Documents/LaTeX-Vorlagen/'
+let g:Tex_CustomTemplateFolder = '/Users/ramon/ownCloud/Documents/LaTeX-Vorlagen/'
 
 " Einstellungen für airline
 " set t_Co=256
@@ -118,9 +118,7 @@ cmap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
 let g:tagbar_expand = 1
 
 " Transpose words
-imap † <Plug>Transposewords
-nmap † <Plug>Transposewords
-cmap † <Plug>Transposewords
+map † <Plug>Transposewords
 
 " Ledger
 " Gesamtbreite, wenn gefaltet
