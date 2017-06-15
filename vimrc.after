@@ -70,11 +70,12 @@ let g:airline_symbols.linenr = ''
 
 " Buffer in der Tabline
 " set guioptions -= 'e'
-let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#bufferline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#buffer_min_count = 0
+"let g:airline#extensions#tabline#show_buffers = 1
+"let g:airline#extensions#tabline#buffer_min_count = 0
 " Zeigt nur den Dateiname
 let g:airline#extensions#tabline#fnamemod = ':t'
 " Damit zwischen den Buffern gewechselt werden kann
@@ -101,6 +102,10 @@ set columns=125
 " setzt
 set visualbell
 set t_vb=
+
+" Absolute und relative Zeilennummern
+set relativenumber
+set number
 
 " <M-Q> als Mapping für die Neuformatierung von Absätzen
 " im Unterschied zu gqip bleibt der Cursor an der aktuellen Stelle
@@ -179,7 +184,7 @@ map <leader>f :NERDTreeFind<cr>
 " Voom
 " Ort der Baumübersicht, Standard 'left'
 let g:voom_tree_placement = "right"
-let g:voom_ft_modes = {'markdown': 'markdown', 'md': 'markdown', 'liquid': 'markdown', 'tex': 'latex'}
+let g:voom_ft_modes = {'markdown': 'markdown', 'md': 'markdown', 'liquid': 'markdown', 'tex': 'latex', 'html': 'html'}
 nnoremap <leader>v :Voom<CR>
 
 " Buffergator
@@ -202,4 +207,7 @@ inoremap <F11> <Esc>:set nolinebreak fo-=a<cr>i
 " Dash
 :nmap <silent> <leader>d <Plug>DashSearch
 
+" erb
+autocmd FileType erb let b:surround_{char2nr('=')} = "<%= \r %>"
+autocmd FileType erb let b:surround_{char2nr('-')} = "<% \r %>"
 

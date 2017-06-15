@@ -1,0 +1,2 @@
+bind status P !git push origin %(branch)
+bind main P !git push origin %(branch)

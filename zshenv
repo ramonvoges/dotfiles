@@ -2,13 +2,13 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Für meine Ruby-Skripte
-export PATH=/Users/ramon/ownCloud/Skripte/tools:$PATH
+export PATH=$HOME/Skripte/tools:$PATH
 
 # Für Latex
 export PATH=/usr/texbin:$PATH
 
 # Als Alias für meine Skripte
-export skripte=~/ownCloud/Skripte
+export skripte=$HOME/Skripte
 
 # Für Python
 # export PATH=/Library/Frameworks/Python.framework/Versions/3.2/bin:$PATH
