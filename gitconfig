@@ -55,4 +55,4 @@
   separator = red bold
   linenumber = normal
 [core]
-	editor = nvim
+  editor = nvim

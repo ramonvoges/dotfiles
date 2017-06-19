@@ -7,6 +7,9 @@ export PATH=$HOME/Skripte/tools:$PATH
 # Für Latex
 export PATH=/usr/texbin:$PATH
 
+# Für Haskel und stack
+export PATH=$HOME/.local/bin:$PATH
+
 # Als Alias für meine Skripte
 export skripte=$HOME/Skripte
 
