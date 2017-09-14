@@ -1,8 +1,8 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-	name = Ramon Voges
-	email = ramon.voges@posteo.de
+  name = Ramon Voges
+  email = ramon.voges@posteo.de
 [color]
   pager = true
   ui = auto
@@ -24,7 +24,7 @@
   meta = red bold
   frag = black bold
   func = blue
-  old = red strike
+  old = red
   new = green
   commit = blue
   whitespace = red

@@ -10,6 +10,10 @@ export PATH=/usr/texbin:$PATH
 # Für Haskel und stack
 export PATH=$HOME/.local/bin:$PATH
 
+# Für TreeTagger
+export PATH=$HOME/Skripte/treetagger/cmd:$PATH
+export PATH=$HOME/Skripte/treetagger/bin:$PATH
+
 # Als Alias für meine Skripte
 export skripte=$HOME/Skripte
 
